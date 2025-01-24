@@ -1,6 +1,19 @@
 :root {
   --dark-colour: #030639;
-  --light-colour: #daccfd;
-  --headings: 'Space Grotesk', serif;
-  --text: 'DM Sans', serif;
+  --white: #daccfd;
+  --light-colour: #BB9FFD;
+  --heading: "Space Grotesk", serif;
+  --text: "DM Sans", serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--text);
+}
+
+.info {
+  color: #585858;
+  font-size: 0.8rem;
 }

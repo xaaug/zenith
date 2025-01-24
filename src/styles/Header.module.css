@@ -1,0 +1,13 @@
+header {
+  background: var(--dark-colour);
+  color: var(--light-colour);
+  font-family: var(--heading);
+  text-align: center;
+  padding: 0.5rem 0;
+  margin-bottom: 2rem;
+}
+
+header p {
+  font-size: 2rem;
+  font-weight: 500;
+}
