@@ -3,6 +3,7 @@ import styles from "../styles/Form.module.css";
 
 const Form = ({ generateTasks }) => {
   const getFormData = (formData) => {
+    console.log(Object.fromEntries(formData));
     generateTasks(Object.fromEntries(formData));
   };
 
@@ -17,7 +18,7 @@ const Form = ({ generateTasks }) => {
             id="project"
             placeholder="Build a weather app"
             required
-            defaultValue='Build a weather app'
+            defaultValue="Build a weather app"
           />
         </label>
 
@@ -29,12 +30,23 @@ const Form = ({ generateTasks }) => {
             id="stack"
             placeholder="React, Tailwind CSS, Firebase"
             required
-            defaultValue='React, Firebase, Tailwind'
+            defaultValue="React, Firebase, Tailwind"
           />
           <span className="info">
             Separate the technologies using a comma{" "}
             <span className={styles.comma}>,</span>
           </span>
+        </label>
+
+        <label>
+          Skill Level
+          <div className={styles.container}>
+            <select className={styles.customSelect} name="skill">
+              <option value="beginner">Beginner</option>
+              <option value="advanced">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </div>
         </label>
 
         <button>Generate Tasks</button>

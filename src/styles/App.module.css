@@ -1,3 +1,22 @@
 .container {
   padding: 0.2rem 2rem;
 }
+
+.tasksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.tasksContainer h3 {
+  font-family: var(--heading);
+  font-size: 2rem;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}

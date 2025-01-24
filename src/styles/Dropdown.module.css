@@ -1,0 +1,41 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.customSelect {
+  appearance: none;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  /* padding: 0.675em 6em 0.675em 1em; */
+  padding: 0.9rem;
+  background-color: #fff;
+  border: 1px solid var(--dark-colour);
+  border-radius: 10px;
+  color: #000;
+  cursor: pointer;
+}
+
+.container::before,
+.container::after {
+  --size: 0.3rem;
+  position: absolute;
+  content: "";
+  right: 1rem;
+  pointer-events: none;
+}
+
+.container::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid black;
+  top: 40%;
+}
+
+.container::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid black;
+  top: 55%;
+}
