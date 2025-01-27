@@ -15,15 +15,15 @@ const App = () => {
   const [loading, setLoading] = useState(false);
 
   const generateTasks = async (projectDetails) => {
-    // setLoading(true);
+    setLoading(true);
 
-    // const tasksArray = await getTasks(projectDetails);
-    // console.log(tasksArray);
+    const tasksArray = await getTasks(projectDetails);
+    console.log(tasksArray);
 
-    // setLoading(false);
+    setLoading(false);
 
-    // setProject(JSON.parse(tasksArray).tasks);
-    setProject(mock.tasks);
+    setProject(JSON.parse(tasksArray).tasks);
+    // setProject(mock.tasks);
   };
 
   const toggleComplete = (id) => {
