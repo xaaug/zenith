@@ -1,11 +1,13 @@
 import { useState } from "react";
+
+import styles from "./styles/App.module.css";
+
 import Header from "./components/Header";
 import Form from "./components/Form";
 import TaskItem from "./components/TaskItem.jsx";
 import Spinner from "./components/Spinner.jsx";
-import styles from "./styles/App.module.css";
-import { mock } from "../mock.js";
 
+import { mock } from "../mock.js";
 import { getTasks } from "../ai.js";
 
 const App = () => {
@@ -44,7 +46,7 @@ const App = () => {
     <>
       <Header />
       <main className={styles.container}>
-        {Object.entries(project).length === 0 ? (
+        {Object.entries(project).length === 0 && !loading ? (
           <Form generateTasks={generateTasks} />
         ) : null}
 

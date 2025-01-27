@@ -1,43 +1,77 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import PropTypes from "prop-types";
+import styles from "../styles/Modal.module.css";
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+import Chip from "./Chip";
+import Pomodoro from "./Pomodoro";
+import TodoItem from "./TodoItem";
 
-export default function BasicModal(openState, handleClose) {
-//   const [open, setOpen] = React.useState(false);
-//   const handleClosen = () => setOpen(false);
+const Modal = ({ isOpen, onClose, content, toggleState, btnStyle }) => {
+  if (!isOpen) return null;
+
+  const resources = content.resources.map((res) => res.split(":"));
+  console.log(resources);
+  console.log(content.resources);
 
   return (
-    <div>
-      {/* <Button onClick={}>Open modal</Button> */}
-      <Modal
-        open={openState}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
-      </Modal>
-    </div>
+    <>
+      {
+        <div className={styles.modalOverlay} onClick={onClose}>
+          <div
+            className={styles.modalContainer}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {typeof content === "object" ? (
+              <div className={styles.modalContent}>
+                <div className={styles.intro}>
+                  <h3>{content.task}</h3>
+                  <p>{content.description}</p>
+
+                  <div className={styles.chipContainer}>
+                    {content.techStack.map((stack, i) => (
+                      <Chip title={stack} key={i} />
+                    ))}
+                  </div>
+                </div>
+
+                <div className={styles.todoItemsContainer}>
+                  <h4>Checklist</h4>
+                    {content.subTasks.map((task, i) => <TodoItem todo={task} key={i}/>)}
+                </div>
+
+                <div className={styles.resources}>
+                  <h4>Resources</h4>
+                  {resources.map((res, i) => (
+                    <p key={i}>
+                      <a href={res.splice(1).join(":")} target="blank">
+                        {res[0]}
+                      </a>
+                    </p>
+                  ))}
+                </div>
+
+                <Pomodoro />
+                <button
+                  style={btnStyle}
+                  className={styles.statusBtn}
+                  onClick={() => toggleState(content.id)}
+                >
+                  {content.completed ? "Completed" : "Mark Complete"}
+                </button>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      }
+    </>
   );
-}
+};
+
+Modal.propTypes = {
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func,
+  content: PropTypes.obj,
+  btnStyle: PropTypes.obj,
+  toggleState: PropTypes.func,
+};
+
+export default Modal;

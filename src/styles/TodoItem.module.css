@@ -1,0 +1,22 @@
+.todoContainer {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+
+.todoContainer button {
+    background: transparent;
+    border: 2px solid var(--dark-colour);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 4px;
+}
+
+.completed button{
+    background-color: var(--lilac);
+}
+.completed p {
+    text-decoration: line-through;
+    opacity: .5;
+}

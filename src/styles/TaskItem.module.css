@@ -1,16 +1,22 @@
 .container {
-  background: var(--white);
+  background: var(--lilac);
   border-radius: 10px;
   padding: 1rem;
 }
 
-.container h3 {
+.container .title {
   font-family: var(--heading);
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: transform ease-in-out 300ms;
 }
 
-.container button {
+.container .title:hover {
+  transform: scale(1.012);
+}
+
+.statusBtn {
   background-color: var(--dark-colour);
   width: 100%;
   color: var(--white);
@@ -19,7 +25,6 @@
   padding: 0.6rem 0.9rem;
   margin: 0;
   font-size: 1rem;
-  cursor: pointer;
 }
 
 .chipsContainer {
@@ -29,13 +34,14 @@
 }
 
 .estimatedTime {
-  background: var(--light-colour);
+  background: var(--dark-colour);
   width: max-content;
   padding: 0.4rem 0.8rem;
   border-radius: 50px;
   font-weight: 500;
   font-size: 0.85rem;
   margin-bottom: 1.5rem;
+  color: var(--white);
 }
 
 .editTask {
@@ -49,4 +55,8 @@
   background: transparent;
   /* border: var(--dark-colour) .125rem solid; */
   padding: 0.3rem 0.5rem;
+}
+
+.deleteBtn {
+  border: none;
 }

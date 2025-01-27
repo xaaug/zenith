@@ -1,0 +1,33 @@
+.container { 
+    background-color: var(--lilac);
+    width: 100%;
+    border-radius: 20px;
+    display: flex;
+    gap: .5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    margin: 0 auto;
+}
+
+.timer h3 {
+    font-size: 3rem;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btnContainer button {
+    background-color: var(--dark-colour);
+    color: var(--white);
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 500px;
+    padding: .5rem 1rem;
+
+}

@@ -33,7 +33,7 @@ const Form = ({ generateTasks }) => {
             defaultValue="React, Firebase, Tailwind"
           />
           <span className="info">
-            Separate the technologies using a comma{" "}
+            Input technologies separated by a comma
             <span className={styles.comma}>,</span>
           </span>
         </label>
