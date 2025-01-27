@@ -8,7 +8,7 @@ const Form = ({ generateTasks }) => {
   };
 
   return (
-    <div className={styles}>
+    <div className={styles.container}>
       <form action={getFormData}>
         <label>
           Project Description
@@ -40,7 +40,7 @@ const Form = ({ generateTasks }) => {
 
         <label>
           Skill Level
-          <div className={styles.container}>
+          <div className={styles.selectContainer}>
             <select className={styles.customSelect} name="skill">
               <option value="beginner">Beginner</option>
               <option value="advanced">Intermediate</option>

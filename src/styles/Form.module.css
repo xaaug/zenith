@@ -53,7 +53,7 @@ button:hover {
 
 /* Dropdown */
 
-.container {
+.selectContainer {
   width: 100%;
   position: relative;
 }
@@ -72,8 +72,8 @@ button:hover {
   cursor: pointer;
 }
 
-.container::before,
-.container::after {
+.selectContainer::before,
+.selectContainer::after {
   --size: 0.3rem;
   position: absolute;
   content: "";
@@ -81,14 +81,14 @@ button:hover {
   pointer-events: none;
 }
 
-.container::before {
+.selectContainer::before {
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
   border-bottom: var(--size) solid black;
   top: 40%;
 }
 
-.container::after {
+.selectContainer::after {
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
   border-top: var(--size) solid black;
