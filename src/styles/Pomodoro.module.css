@@ -1,38 +1,37 @@
-.container { 
-    background-color: var(--lilac);
-    width: 100%;
-    border-radius: 20px;
-    display: flex;
-    gap: .5rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 0;
-    margin: 0 auto;
+.container {
+  background-color: var(--lilac);
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  margin: 0 auto;
 }
 
 .timer h3 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .timer h3 span {
-    font-size: 2rem;
-    margin-left: .2rem;
+  font-size: 2rem;
+  margin-left: 0.2rem;
 }
 
 .btnContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .btnContainer button {
-    background-color: var(--dark-colour);
-    color: var(--white);
-    border: none;
-    font-size: 1.2rem;
-    border-radius: 500px;
-    padding: .5rem 1rem;
-
+  background-color: var(--dark-colour);
+  color: var(--white);
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 500px;
+  padding: 0.5rem 1rem;
 }

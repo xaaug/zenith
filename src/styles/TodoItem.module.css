@@ -1,22 +1,21 @@
 .todoContainer {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-
 
 .todoContainer button {
-    background: transparent;
-    border: 2px solid var(--dark-colour);
-    width: 1rem;
-    height: 1rem;
-    border-radius: 4px;
+  background: transparent;
+  border: 2px solid var(--dark-colour);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 4px;
 }
 
-.completed button{
-    background-color: var(--lilac);
+.completed button {
+  background-color: var(--lilac);
 }
 .completed p {
-    text-decoration: line-through;
-    opacity: .5;
+  text-decoration: line-through;
+  opacity: 0.5;
 }

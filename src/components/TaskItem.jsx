@@ -27,6 +27,11 @@ const TaskItem = ({ task, toggleState, deleteTask }) => {
     toggleState(id);
   };
 
+  const formattedTaskText =
+    task.task.charAt(0).toUpperCase() + task.task.split("").splice(1).join("");
+
+  console.log(formattedTaskText);
+
   return (
     <>
       <div className={styles.container} style={completeState}>
@@ -36,21 +41,28 @@ const TaskItem = ({ task, toggleState, deleteTask }) => {
               ? `${task.task.substring(0, 35)}...`
               : task.task}
           </h3>
-          <button onClick={() => deleteTask(task.id)} className={styles.deleteBtn}>
+          <button
+            onClick={() => deleteTask(task.id)}
+            className={styles.deleteBtn}
+          >
             <FontAwesomeIcon icon={faTrash} style={{ color: "#fb7272" }} />
           </button>
         </div>
 
         <p>{task.description}</p>
         <div className={styles.chipsContainer}>
-          {task.techStack.map((techno, i) => (
-            <Chip title={techno} key={i} />
+          {task.techStack.map((tech, i) => (
+            <Chip title={tech} key={i} />
           ))}
         </div>
 
-        <div className={styles.estimatedTime}>EST: {task.time} min</div>
+        <div className={styles.estimatedTime}>ETA: {task.time} min</div>
 
-        <button style={btnBg} className={styles.statusBtn} onClick={() => updateCompleteBtn(task.id)}>
+        <button
+          style={btnBg}
+          className={styles.statusBtn}
+          onClick={() => updateCompleteBtn(task.id)}
+        >
           {task.completed ? "Completed" : "Mark Complete"}
         </button>
         {

@@ -8,7 +8,10 @@ import TodoItem from "./TodoItem";
 const Modal = ({ isOpen, onClose, content, toggleState, btnStyle }) => {
   if (!isOpen) return null;
 
-  const resources = content.resources > 1 ? content.resources.map((res) => res.split(":")) : content.resources
+  const resources =
+    content.resources > 1
+      ? content.resources.map((res) => res.split(":"))
+      : content.resources;
   console.log(resources.length);
   console.log(content.resources);
 
@@ -33,25 +36,35 @@ const Modal = ({ isOpen, onClose, content, toggleState, btnStyle }) => {
                   </div>
                 </div>
 
-               {content.subTasks && <div className={styles.todoItemsContainer}>
-                  <h4>Checklist</h4>
-                    {content.subTasks.map((task, i) => <TodoItem todo={task} key={i}/>)}
-                </div>}
+                {content.subTasks && (
+                  <div className={styles.todoItemsContainer}>
+                    <h4>Checklist</h4>
+                    {content.subTasks.map((task, i) => (
+                      <TodoItem todo={task} key={i} />
+                    ))}
+                  </div>
+                )}
 
                 <div className={styles.resources}>
                   <h4>Resources</h4>
-                  {resources.length > 1 ? resources.map((res, i) => (
-                    <p key={i}>
-                      {/* <a href={res.splice(1).join(":")} target="blank">
+                  {resources.length > 1 ? (
+                    resources.map((res, i) => (
+                      <p key={i}>
+                        {/* <a href={res.splice(1).join(":")} target="blank">
                         {res[0]}
                       </a> */}
-                      <a href={res} target="blank">{res.substring(0, 35)}...</a>
+                        <a href={res} target="blank">
+                          {res.substring(0, 35)}...
+                        </a>
+                      </p>
+                    ))
+                  ) : (
+                    <p>
+                      <a href={resources[0]} target="blank">
+                        {resources[0].substring(0, 35)}...
+                      </a>
                     </p>
-                  )):<p >
-                  <a href={resources[0]} target="blank">
-                    {resources[0].substring(0, 35)}...
-                  </a>
-                </p> }
+                  )}
                 </div>
 
                 <Pomodoro />

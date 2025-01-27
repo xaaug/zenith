@@ -11,7 +11,9 @@ const Pomodoro = ({ time = 120 }) => {
     <>
       <div className={styles.container}>
         <div className={styles.timer}>
-          <h3>02<span>H</span> : 30<span>M</span></h3>
+          <h3>
+            02<span>H</span> : 30<span>M</span>
+          </h3>
         </div>
 
         <div className={styles.btnContainer}>

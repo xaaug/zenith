@@ -1,19 +1,14 @@
 import PropTypes from "prop-types";
 import styles from "../styles/Form.module.css";
-import { useState } from "react";
 
 const Form = ({ generateTasks }) => {
-
-  const [formError, setFormError] = useState(false)
-
   const getFormData = (formData) => {
- 
-      generateTasks(Object.fromEntries(formData));
+    generateTasks(Object.fromEntries(formData));
   };
 
   return (
     <div className={styles.container}>
-      <form action={getFormData} className={formError ? styles.error: null}>
+      <form action={getFormData}>
         <label>
           Project Description
           <input
@@ -22,7 +17,7 @@ const Form = ({ generateTasks }) => {
             id="project"
             placeholder="Build a weather app"
             required
-            // defaultValue="Build a weather app"
+            defaultValue="Build a weather app"
           />
         </label>
 
@@ -34,7 +29,7 @@ const Form = ({ generateTasks }) => {
             id="stack"
             placeholder="React, Tailwind CSS, Firebase"
             required
-            // defaultValue="React, Firebase, Tailwind"
+            defaultValue="React, Firebase, Tailwind"
           />
           <span className="info">
             Input technologies separated by a comma
@@ -46,7 +41,7 @@ const Form = ({ generateTasks }) => {
           Skill Level
           <div className={styles.selectContainer}>
             <select className={styles.customSelect} name="skill" required>
-              <option value=""  >Select a skill</option>
+              <option value="">Select a skill</option>
               <option value="beginner">Beginner</option>
               <option value="advanced">Intermediate</option>
               <option value="advanced">Advanced</option>

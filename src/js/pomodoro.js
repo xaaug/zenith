@@ -53,6 +53,4 @@ const stopPomodoro = () => {
   clearInterval(intervalId);
 };
 
-
-
 export { startPomodoro, stopPomodoro, formatTime };

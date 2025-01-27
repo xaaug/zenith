@@ -1,22 +1,30 @@
-import { useState } from 'react'
-import PropTypes from 'prop-types'
-import styles from '../styles/TodoItem.module.css'
+import { useState } from "react";
+import PropTypes from "prop-types";
+import styles from "../styles/TodoItem.module.css";
 
-const TodoItem = ({todo}) => {
-    const [complete, setComplete] = useState(false)
+const TodoItem = ({ todo }) => {
+  const [complete, setComplete] = useState(false);
 
-    const handleClick = () => setComplete(prev => !prev)
+  const handleClick = () => setComplete((prev) => !prev);
 
-    return (<>
-    <div className={!complete ? styles.todoContainer : ` ${styles.todoContainer} ${styles.completed}`}>
+  return (
+    <>
+      <div
+        className={
+          !complete
+            ? styles.todoContainer
+            : ` ${styles.todoContainer} ${styles.completed}`
+        }
+      >
         <button onClick={handleClick}></button>
         <p>{todo}</p>
-    </div>
-    </>)
-}
+      </div>
+    </>
+  );
+};
 
 TodoItem.propTypes = {
-    todo: PropTypes.string
-}
+  todo: PropTypes.string,
+};
 
-export default TodoItem
+export default TodoItem;
