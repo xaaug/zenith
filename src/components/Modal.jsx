@@ -12,8 +12,6 @@ const Modal = ({ isOpen, onClose, content, toggleState, btnStyle }) => {
     content.resources > 1
       ? content.resources.map((res) => res.split(":"))
       : content.resources;
-  console.log(resources.length);
-  console.log(content.resources);
 
   return (
     <>
@@ -36,10 +34,10 @@ const Modal = ({ isOpen, onClose, content, toggleState, btnStyle }) => {
                   </div>
                 </div>
 
-                {content.subTasks && (
+                {content.subtasks && (
                   <div className={styles.todoItemsContainer}>
                     <h4>Checklist</h4>
-                    {content.subTasks.map((task, i) => (
+                    {content.subtasks.map((task, i) => (
                       <TodoItem todo={task} key={i} />
                     ))}
                   </div>

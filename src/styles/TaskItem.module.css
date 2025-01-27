@@ -60,3 +60,7 @@
 .deleteBtn {
   border: none;
 }
+
+.taskContent {
+  cursor: pointer;
+}

@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Form from "./components/Form";
 import TaskItem from "./components/TaskItem.jsx";
 import Spinner from "./components/Spinner.jsx";
+import APIError from "./components/APIError.jsx";
 
 import { mock } from "../mock.js";
 import { getTasks } from "../ai.js";
@@ -13,16 +14,19 @@ import { getTasks } from "../ai.js";
 const App = () => {
   const [project, setProject] = useState({});
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false) 
 
   const generateTasks = async (projectDetails) => {
     setLoading(true);
 
     const tasksArray = await getTasks(projectDetails);
-    console.log(tasksArray);
+    console.log(JSON.parse(tasksArray).tasks);
 
     setLoading(false);
 
-    setProject(JSON.parse(tasksArray).tasks);
+    if (!JSON.parse(tasksArray).tasks) setError(true)
+
+    setProject(JSON.parse(tasksArray).tasks) 
     // setProject(mock.tasks);
   };
 
@@ -45,8 +49,9 @@ const App = () => {
   return (
     <>
       <Header />
-      <main className={styles.container}>
-        {Object.entries(project).length === 0 && !loading ? (
+     <main className={styles.container}>
+        {!error && <div>
+        {Object.entries(project).length === 0  && !loading ? (
           <Form generateTasks={generateTasks} />
         ) : null}
 
@@ -71,7 +76,8 @@ const App = () => {
             })}
           </section>
         ) : null}
-      </main>
+        </div>}
+      </main> 
     </>
   );
 };

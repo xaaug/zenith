@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -30,33 +30,34 @@ const TaskItem = ({ task, toggleState, deleteTask }) => {
   const formattedTaskText =
     task.task.charAt(0).toUpperCase() + task.task.split("").splice(1).join("");
 
-  console.log(formattedTaskText);
 
   return (
     <>
       <div className={styles.container} style={completeState}>
-        <div className={styles.editTask}>
-          <h3 onClick={openModal} className={styles.title}>
-            {task.task.length > 35
-              ? `${task.task.substring(0, 35)}...`
-              : task.task}
-          </h3>
-          <button
-            onClick={() => deleteTask(task.id)}
-            className={styles.deleteBtn}
-          >
-            <FontAwesomeIcon icon={faTrash} style={{ color: "#fb7272" }} />
-          </button>
-        </div>
+        <div onClick={openModal} className={styles.taskContent}>
+          <div className={styles.editTask}>
+            <h3 className={styles.title}>
+              {formattedTaskText.length > 35
+                ? `${formattedTaskText.substring(0, 35)}...`
+                : formattedTaskText}
+            </h3>
+            <button
+              onClick={() => deleteTask(task.id)}
+              className={styles.deleteBtn}
+            >
+              <FontAwesomeIcon icon={faTrash} style={{ color: "#fb7272" }} />
+            </button>
+          </div>
 
-        <p>{task.description}</p>
-        <div className={styles.chipsContainer}>
-          {task.techStack.map((tech, i) => (
-            <Chip title={tech} key={i} />
-          ))}
-        </div>
+          <p>{task.description}</p>
+          <div className={styles.chipsContainer}>
+            {task.techStack.map((tech, i) => (
+              <Chip title={tech} key={i} />
+            ))}
+          </div>
 
-        <div className={styles.estimatedTime}>ETA: {task.time} min</div>
+          <div className={styles.estimatedTime}>ETA: {task.time} min</div>
+        </div>
 
         <button
           style={btnBg}
