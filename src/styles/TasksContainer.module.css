@@ -1,0 +1,57 @@
+
+.tasksContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tasksContainer h3 {
+    font-family: var(--heading);
+    /* font-size: 2rem; */
+  }
+  
+  .loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .projectTitle {
+    border: 1px solid var(--dark-colour);
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    font-size: 1.4em;
+  }
+  
+  .tasksContainer h4 {
+    font-size: 1.4rem;
+  }
+  .taskSave {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .saveProjectBtn {
+    background-color: var(--dark-colour);
+    color: var(--white);
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    padding: .5rem 1rem;
+  }
+  
+  .homeBtn {
+    background: var(--dark-colour);
+    color: var(--white);
+    font: 1.3rem;
+    padding: .4rem .8rem;
+    border-radius: 5px;
+  }
+
+  .btnContainer {
+    display: flex;
+    gap: .5rem;
+  }

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "../styles/Modal.module.css";
 
@@ -13,6 +14,8 @@ const Modal = ({ isOpen, onClose, content, toggleState, btnStyle }) => {
       ? content.resources.map((res) => res.split(":"))
       : content.resources;
 
+      const subtasks = content.subTasks ? 'subTasks' : 'subtasks'
+
   return (
     <>
       {
@@ -24,7 +27,7 @@ const Modal = ({ isOpen, onClose, content, toggleState, btnStyle }) => {
             {typeof content === "object" ? (
               <div className={styles.modalContent}>
                 <div className={styles.intro}>
-                  <h3>{content.task}</h3>
+                  <h3 style={{fontSize: '1.6rem'}}>{content.task}</h3>
                   <p>{content.description}</p>
 
                   <div className={styles.chipContainer}>
@@ -34,18 +37,18 @@ const Modal = ({ isOpen, onClose, content, toggleState, btnStyle }) => {
                   </div>
                 </div>
 
-                {content.subtasks && (
+                {content[subtasks] && (
                   <div className={styles.todoItemsContainer}>
-                    <h4>Checklist</h4>
-                    {content.subtasks.map((task, i) => (
+                    <h4 style={{fontSize: '1rem'}}>Checklist</h4>
+                    {content[subtasks].map((task, i) => (
                       <TodoItem todo={task} key={i} />
                     ))}
                   </div>
                 )}
 
-                <div className={styles.resources}>
+               { content.resources ? <div className={styles.resources}>
                   <h4>Resources</h4>
-                  {resources.length > 1 ? (
+                  {(resources.length > 1) ? (
                     resources.map((res, i) => (
                       <p key={i}>
                         {/* <a href={res.splice(1).join(":")} target="blank">
@@ -63,9 +66,9 @@ const Modal = ({ isOpen, onClose, content, toggleState, btnStyle }) => {
                       </a>
                     </p>
                   )}
-                </div>
+                </div> : null}
 
-                <Pomodoro />
+                <Pomodoro time={content.time}/>
                 <button
                   style={btnStyle}
                   className={styles.statusBtn}

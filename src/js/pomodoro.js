@@ -12,6 +12,9 @@ const formatTime = (time) => {
   } else if (timer < 60) {
     hours = 0;
     minutes = timer;
+  } else if (timer === 60) {
+    hours = timer / 60
+    minutes = 0
   }
 
   return [hours, minutes];

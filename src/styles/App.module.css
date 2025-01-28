@@ -2,7 +2,7 @@
   padding: 0.2rem 2rem;
 
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
 }
 
 .tasksContainer {
@@ -14,7 +14,7 @@
 
 .tasksContainer h3 {
   font-family: var(--heading);
-  font-size: 2rem;
+  /* font-size: 2rem; */
 }
 
 .loader {
@@ -22,4 +22,69 @@
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
+}
+
+.projectTitle {
+  border: 1px solid var(--dark-colour);
+  border-radius: 10px;
+  padding: .5rem 1rem;
+  font-size: 1.4em;
+}
+
+.tasksContainer h4 {
+  font-size: 1.4rem;
+}
+.taskSave {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.saveProjectBtn {
+  background-color: var(--dark-colour);
+  color: var(--white);
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  padding: .5rem 1rem;
+}
+
+
+
+.projectsContainer h3 {
+  margin: 2rem 0 1rem;
+  font-size: 1.5rem;
+}
+
+.allProjectsView {
+  padding: 1rem 2rem;
+  max-width: 800px;
+}
+
+.allProjectsContainer {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+}
+
+.allProjectsView button {
+  background: var(--dark-colour);
+  color: var(--white);
+  padding: .4rem .8rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.allProjectsHome {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+button:disabled {
+  opacity: .5;
+  cursor: pointer;
 }

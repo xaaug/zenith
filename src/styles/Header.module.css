@@ -3,11 +3,23 @@ header {
   color: var(--light-colour);
   font-family: var(--heading);
   text-align: center;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
   margin-bottom: 2rem;
 }
 
 header p {
+  display: inline-block;
   font-size: 2rem;
   font-weight: 500;
 }
+
+header button {
+  background: transparent;
+  color: var(--light-colour);
+  border: none;
+  font-size: 1.1rem;
+  float: inline-end;
+  line-height: 2.5em;
+
+}
+

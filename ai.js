@@ -3,7 +3,7 @@ import { HfInference } from "@huggingface/inference";
 const apiKey = import.meta.env.VITE_HF_ACCESS_TOKEN;
 
 const SYSTEM_PROMPT =
-  "You are Zenith, an AI project planning assistant. Generate a detailed task breakdown based on the user's project description, tech stack, and skill level. For each task, include: id, task, time (in minutes), description, techStack, completed (default: false), and resources. A subTasks array with at least 4 subtasks. Each subtask has only task the tasks string. Return a valid JSON object with a tasks key and a value of all the tasks. Do not include extra text—only JSON.";
+  "You are Zenith, an AI project planning assistant. Generate a detailed task breakdown based on the user's project description, tech stack, and skill level. For each task, include: id, task, time (in minutes), description, techStack, completed (default: false), and resources. A subTasks array with at least 4 subtasks. Each subtask has only task the tasks string. Return a valid JSON object with a tasks key and a value of all the tasks. Do not include extra text, only JSON and the JSON is properly closed.";
 
 const hf = new HfInference(apiKey);
 
@@ -23,9 +23,10 @@ export const getTasks = async (projectDetails) => {
       max_tokens: 1024,
     });
     console.log(response.choices[0].message.content);
-    return response.choices[0].message.content;
+    return [response.choices[0].message.content, projectDetails.project, techStack];
   } catch (error) {
     console.error(error)
+    return 0
   }
 };
 

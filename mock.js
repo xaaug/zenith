@@ -1,4 +1,4 @@
-const mock = {
+const mock = [ {
   tasks: [
     {
       id: 1,
@@ -75,6 +75,6 @@ const mock = {
         "Test video conferencing functionality",
       ],
     },
-  ],
-};
+  ]},'build a web app', ["React", "Node.js"],
+];
 export { mock };

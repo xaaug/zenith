@@ -16,7 +16,7 @@ const TodoItem = ({ todo }) => {
             : ` ${styles.todoContainer} ${styles.completed}`
         }
       >
-        <button onClick={handleClick}></button>
+        <button onClick={handleClick} className={styles.checkbox}></button>
         <p>{todo}</p>
       </div>
     </>
